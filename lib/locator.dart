@@ -1,6 +1,8 @@
 import 'package:flutterstarter/provider/HomeProvider.dart';
 import 'package:flutterstarter/provider/KamusProvider.dart';
+import 'package:flutterstarter/provider/LoginProvider.dart';
 import 'package:flutterstarter/provider/ModulProvider.dart';
+import 'package:flutterstarter/provider/RegisterProvider.dart';
 import 'package:flutterstarter/services/ApiInterceptors.dart';
 import 'package:flutterstarter/services/EventBusService.dart';
 import 'package:flutterstarter/services/KamusService.dart';
@@ -20,6 +22,8 @@ void setupLocator() {
 
 
   // provider
+  locator.registerFactory(() => LoginProvider());
+  locator.registerFactory(() => RegisterProvider());
   locator.registerFactory(() => HomeProvider());
   locator.registerFactory(() => KamusProvider());
   locator.registerFactory(() => ModulProvider());

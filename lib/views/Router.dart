@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstarter/views/Register.dart';
 import 'package:flutterstarter/views/kamus/KamusIndex.dart';
 import 'package:flutterstarter/views/latihan/TestLatihan.dart';
 import 'package:flutterstarter/views/modul/ModulBelajarDetail.dart';
@@ -6,6 +7,7 @@ import 'package:flutterstarter/views/modul/ModulBelajarIndex.dart';
 import 'package:flutterstarter/views/modul/ModulIndex.dart';
 
 import 'Home.dart';
+import 'Login.dart';
 
 class RouterApp {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -15,14 +17,14 @@ class RouterApp {
             builder: (_) => MyHomePage(title: 'Flutter Demo Home Page')
         );
 
-      case '/kamus':
+      case '/login':
         return MaterialPageRoute(
-            builder: (_) => KamusIndex()
+            builder: (_) => Login()
         );
 
-      case '/modul':
+      case '/register':
         return MaterialPageRoute(
-            builder: (_) => ModulIndex()
+            builder: (_) => Register()
         );
 
       case '/modul/belajar':

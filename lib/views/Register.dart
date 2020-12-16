@@ -1,32 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:flutterstarter/provider/LoginProvider.dart';
+import 'package:flutterstarter/provider/RegisterProvider.dart';
 import 'package:flutterstarter/shareds/Theme.dart';
-import 'package:geolocator/geolocator.dart';
 
 import 'BaseView.dart';
 
-class Login extends StatefulWidget {
+class Register extends StatefulWidget {
   @override
-  _LoginState createState() => _LoginState();
+  _RegisterState createState() => _RegisterState();
 }
 
-class _LoginState extends State<Login> {
+class _RegisterState extends State<Register> {
   final formKey = GlobalKey<FormState>();
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    getLokasi();
-    super.initState();
-  }
-  Future getLokasi ()async{
-    Position position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
-    print(position);
-  }
   @override
   Widget build(BuildContext context) {
-    return BaseView<LoginProvider>(
-      onModelReady: (model) => model.getLokasi(),
+    return BaseView<RegisterProvider>(
+      onModelReady: (model)=>model.getLokasi(),
       builder: (context, provider, child){
         return  Scaffold(
             backgroundColor: Colors.white,
@@ -41,13 +29,19 @@ class _LoginState extends State<Login> {
                             child: Image.asset('assets/images/vector-login.png', fit: BoxFit.fitWidth,)
                         ),
                         Container(
-                            margin: EdgeInsets.only(top: 70, left: 16),
+                            margin: EdgeInsets.only(top: 60, left: 16),
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Text("Selamat Datang,", style: textHeader,),
+                                InkWell(
+                                    onTap: (){
+                                      Navigator.pop(context);
+                                    },
+                                    child: Icon(Icons.arrow_back, color: Colors.white,)
+                                ),
                                 SizedBox(height: 16,),
-                                Text("Silahkan Login", style: textHeader.copyWith(fontWeight: FontWeight.bold, fontSize: 32),),
+                                Text("Register Akun", style: textHeader,),
+                                SizedBox(height: 16,),
                               ],
                             )
                         )
@@ -64,16 +58,29 @@ class _LoginState extends State<Login> {
                             TextFormField(
                               validator: (value){
                                 if(value == ''){
+                                  return 'username tidak boleh kosong';
+                                }
+                                return null;
+                              },
+                              decoration: InputDecoration(
+                                  labelText: "Username"
+                              ),
+                            ),
+                            SizedBox(height: 16,),
+                            TextFormField(
+                              validator: (value){
+                                if(value == ''){
                                   return 'alamat email tidak boleh kosong';
                                 }
                                 return null;
                               },
                               decoration: InputDecoration(
-                                  labelText: "Alamat email"
+                                  labelText: "Alamat Email"
                               ),
                             ),
                             SizedBox(height: 16,),
                             TextFormField(
+                              obscureText: true,
                               validator: (value){
                                 if(value == ''){
                                   return 'password tidak boleh kosong';
@@ -93,7 +100,7 @@ class _LoginState extends State<Login> {
                                 onPressed: (){
                                   assert(formKey.currentState.validate());
                                 },
-                                child: Text("Login", style: TextStyle(color: Colors.white),),
+                                child: Text("Register", style: TextStyle(color: Colors.white),),
                               ),
                             ),
 
@@ -102,11 +109,11 @@ class _LoginState extends State<Login> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text("Belum memiliki akun ?"),
+                                Text("Sudah memiliki akun ?"),
                                 InkWell(
-                                  child: Text("Register", style: TextStyle(decoration: TextDecoration.underline),),
+                                  child: Text("Login", style: TextStyle(decoration: TextDecoration.underline),),
                                   onTap: (){
-                                    Navigator.pushNamed(context, '/register');
+                                    Navigator.pop(context);
                                   },
                                 )
                               ],
@@ -128,5 +135,7 @@ class _LoginState extends State<Login> {
         );
       },
     );
+
+
   }
 }
