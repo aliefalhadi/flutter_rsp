@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutterstarter/locator.dart';
+import 'package:flutterstarter/services/DatabaseService.dart';
 import 'package:flutterstarter/shareds/Theme.dart';
 import 'package:flutterstarter/views/Login.dart';
 import 'package:flutterstarter/views/Router.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'locator.dart';
+
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
+  locator<DatabaseService>().initDb();
 
   runApp(MyApp());
 }
