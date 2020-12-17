@@ -4,8 +4,6 @@ import 'package:geolocator/geolocator.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../locator.dart';
-import '../locator.dart';
-import '../shareds/ViewState.dart';
 import '../shareds/ViewState.dart';
 
 class RegisterProvider extends BaseProvider {
@@ -15,6 +13,7 @@ class RegisterProvider extends BaseProvider {
   String foto = '';
   String alamatEmail = '';
   int loginCount=0;
+  UserService userService = locator<UserService>();
 
   void getLokasi() async {
     Position position = await Geolocator.getCurrentPosition(
@@ -36,10 +35,10 @@ class RegisterProvider extends BaseProvider {
     setState(ViewState.Fetching);
     //cek apakah email sudah terdaftar atau belum
     //kalau belum simpan di db
-    List file = await locator<UserService>().getDataByEmail(alamatEmail);
+    List file = await userService.getDataByEmail(alamatEmail);
     print(file);
-    if(file == null){
-      await locator<UserService>().addData([alamatEmail, 0]);
+    if(file.isEmpty){
+      await userService.addData([alamatEmail, 0]);
       setState(ViewState.Idle);
       return true;
     }

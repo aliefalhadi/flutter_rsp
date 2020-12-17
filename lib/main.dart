@@ -11,9 +11,7 @@ import 'locator.dart';
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
   setupLocator();
-  locator<DatabaseService>().initDb();
-
-  runApp(MyApp());
+  locator<DatabaseService>().initDb().then((value) => runApp(MyApp()));
 }
 
 class MyApp extends StatelessWidget {

@@ -20,4 +20,14 @@ class UserService{
       return false;
     }
   }
+
+
+  Future<bool> updateLoginCount(List data) async{
+    try{
+      await database.rawUpdate('UPDATE login_story SET count = ? WHERE email = ?', data);
+      return true;
+    }catch(e) {
+      return false;
+    }
+  }
 }

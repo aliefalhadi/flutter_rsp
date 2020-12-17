@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutterstarter/views/Dashboard.dart';
 import 'package:flutterstarter/views/Register.dart';
-import 'package:flutterstarter/views/kamus/KamusIndex.dart';
 import 'package:flutterstarter/views/latihan/TestLatihan.dart';
 import 'package:flutterstarter/views/modul/ModulBelajarDetail.dart';
 import 'package:flutterstarter/views/modul/ModulBelajarIndex.dart';
-import 'package:flutterstarter/views/modul/ModulIndex.dart';
 
-import 'Home.dart';
 import 'Login.dart';
 
 class RouterApp {
@@ -14,7 +12,7 @@ class RouterApp {
     switch (settings.name) {
       case '/home':
         return MaterialPageRoute(
-            builder: (_) => MyHomePage(title: 'Flutter Demo Home Page')
+            builder: (_) => Dashboard()
         );
 
       case '/login':
