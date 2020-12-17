@@ -31,7 +31,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-        statusBarColor: Colors.blue,
+        statusBarColor: colorPrimary,
         statusBarIconBrightness: Brightness.light));
     return BaseView<LoginProvider>(
       onModelReady: (model) => model.getLokasi(),
@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                                                     FlatButton(
                                                       child: Text("OK"),
                                                       onPressed: () {
-                                                        Navigator.pop(context);
+                                                        Navigator.pushReplacementNamed(context, '/home');
                                                       },
                                                     )
                                                   ],

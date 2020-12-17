@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+
+final colorPrimary= Color(0xff3d8fa6);
+
 final textHeader = TextStyle(fontSize: 24, color: Colors.white);
 
 

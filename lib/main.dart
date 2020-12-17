@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutterstarter/locator.dart';
 import 'package:flutterstarter/services/DatabaseService.dart';
 import 'package:flutterstarter/shareds/Theme.dart';
+import 'package:flutterstarter/views/Dashboard.dart';
 import 'package:flutterstarter/views/Login.dart';
 import 'package:flutterstarter/views/Router.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
           GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         inputDecorationTheme: themeInput
       ),
-      home: Login(),
+      home: Dashboard(),
       onGenerateRoute: RouterApp.generateRoute,
     );
   }

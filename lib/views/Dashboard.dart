@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterstarter/provider/HomeProvider.dart';
+import 'package:flutterstarter/shareds/Theme.dart';
 import 'package:flutterstarter/views/BaseView.dart';
+import 'package:flutterstarter/views/Course.dart';
+import 'package:flutterstarter/views/Home.dart';
+import 'package:flutterstarter/views/ListCourse.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -9,7 +13,7 @@ class Dashboard extends StatefulWidget {
 }
 
 class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMixin {
-  int _currentIndex = 1;
+  int _currentIndex = 0;
   TabController _tabController;
 
   @override
@@ -35,6 +39,7 @@ class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMix
       builder: (context, provider, child) {
         return Scaffold(
             bottomNavigationBar: BottomNavigationBar(
+              selectedItemColor: colorPrimary,
               onTap: (index){
                 setState(() {
                   _currentIndex = index;
@@ -49,17 +54,22 @@ class _DashboardState extends State<Dashboard> with SingleTickerProviderStateMix
                 ),
                 BottomNavigationBarItem(
                   icon: new Icon(Icons.person),
-                  label: 'Alumni',
+                  label: 'Course',
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.book),
-                    label: 'Course'
+                    label: 'List Course'
                 )
               ],
             ),
           body: SafeArea(
             child: TabBarView(
               controller: _tabController,
+              children: [
+                Home(),
+                Course(),
+                ListCourse(),
+              ],
             ),
           ),
         );
