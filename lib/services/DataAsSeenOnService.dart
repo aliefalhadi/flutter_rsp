@@ -1,9 +1,5 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:flutterstarter/models/DaftarKataModel.dart';
 import 'package:flutterstarter/models/DataAsSeenOnModel.dart';
-import 'package:flutterstarter/models/DataPartnerModel.dart';
 import 'package:flutterstarter/services/Service.dart';
 
 class DataAsSeenOnService extends Service {

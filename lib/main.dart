@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
           GoogleFonts.montserratTextTheme(Theme.of(context).textTheme),
         inputDecorationTheme: themeInput
       ),
-      home: Dashboard(),
+      home: Login(),
       onGenerateRoute: RouterApp.generateRoute,
     );
   }

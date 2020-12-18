@@ -135,7 +135,7 @@ class _LoginState extends State<Login> {
                                                     FlatButton(
                                                       child: Text("OK"),
                                                       onPressed: () {
-                                                        Navigator.pushReplacementNamed(context, '/home');
+                                                        Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
                                                       },
                                                     )
                                                   ],

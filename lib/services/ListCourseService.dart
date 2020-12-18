@@ -1,10 +1,4 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
-import 'package:flutterstarter/models/DaftarKataModel.dart';
-import 'package:flutterstarter/models/DataAlumniReportModel.dart';
-import 'package:flutterstarter/models/DataAsSeenOnModel.dart';
-import 'package:flutterstarter/models/DataPartnerModel.dart';
 import 'package:flutterstarter/models/DetailCoursemodel.dart';
 import 'package:flutterstarter/models/ListCourseModel.dart';
 import 'package:flutterstarter/services/Service.dart';
