@@ -1,4 +1,5 @@
 import 'package:flutterstarter/provider/CourseProvider.dart';
+import 'package:flutterstarter/provider/DetailCourseProvider.dart';
 import 'package:flutterstarter/provider/HomeProvider.dart';
 import 'package:flutterstarter/provider/KamusProvider.dart';
 import 'package:flutterstarter/provider/ListCourseProvider.dart';
@@ -43,4 +44,5 @@ void setupLocator() {
   locator.registerFactory(() => ModulProvider());
   locator.registerFactory(() => CourseProvider());
   locator.registerFactory(() => ListCourseProvider());
+  locator.registerFactory(() => DetailCourseProvider());
 }
